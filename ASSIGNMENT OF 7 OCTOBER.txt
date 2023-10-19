@@ -1,0 +1,136 @@
+				ASSIGNMENT OF 7 OCTOBER,2023
+
+3.)
+In CSS Grid Layout, the `grid-auto-rows` and `grid-auto-columns` properties are used to define the size of implicitly created rows and columns in a grid when the number of rows or columns is not explicitly set. These properties are particularly useful when you have a grid with varying content sizes, and you want the grid to automatically adjust to accommodate the content.
+
+Let's go through examples for both `grid-auto-rows` and `grid-auto-columns`:
+
+### Example 1: `grid-auto-rows`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 100px 100px;
+      grid-auto-rows: 50px; /* Sets the default height for auto-created rows */
+      gap: 10px;
+    }
+
+    .grid-item {
+      background-color: lightblue;
+      border: 1px solid blue;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <!-- This item will create a new row with a height of 50px -->
+  <div class="grid-item">4</div>
+</div>
+
+</body>
+</html>
+```
+
+In this example, the `grid-auto-rows` property is set to `50px`, which means any rows created implicitly (beyond the explicitly defined rows) will have a default height of `50px`. The fourth grid item will create a new row with this height.
+
+### Example 2: `grid-auto-columns`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-rows: 100px 100px;
+      grid-auto-columns: 50px; /* Sets the default width for auto-created columns */
+      gap: 10px;
+    }
+
+    .grid-item {
+      background-color: lightblue;
+      border: 1px solid blue;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <!-- This item will create a new column with a width of 50px -->
+  <div class="grid-item">3</div>
+  <!-- This item will create a new column with a width of 50px -->
+  <div class="grid-item">4</div>
+</div>
+
+</body>
+</html>
+```
+
+In this example, the `grid-auto-columns` property is set to `50px`, so any columns created implicitly will have a default width of `50px`. The third and fourth grid items will each create a new column with this width.
+
+These properties are beneficial when you have dynamic content and want the grid to adjust automatically without explicitly defining each row or column size.
+
+5.)
+In CSS Grid Layout, both `justify-items` and `justify-self` are properties that control the horizontal alignment of grid items within their grid cells. However, they operate at different levels of the grid structure.
+
+### `justify-items`:
+
+- **Property for Container (Grid Parent):** `justify-items` is applied to the grid container (parent) and sets the default horizontal alignment for all grid items within the grid.
+
+- **Value Options:** The property accepts values like `start`, `end`, `center`, `stretch`, and `legacy`. The values align the items according to the inline (horizontal) axis of the grid.
+
+- **Example:**
+  ```css
+  .grid-container {
+    display: grid;
+    justify-items: center; /* All grid items will be horizontally centered */
+  }
+  ```
+
+### `justify-self`:
+
+- **Property for Items (Grid Child):** `justify-self` is applied to individual grid items and allows you to override the default alignment set by `justify-items`. It lets you control the horizontal alignment of a specific item within its grid cell.
+
+- **Value Options:** Similar to `justify-items`, `justify-self` accepts values like `start`, `end`, `center`, `stretch`, and `auto`.
+
+- **Example:**
+  ```css
+  .grid-item {
+    justify-self: end; /* This specific item will be aligned to the end within its grid cell */
+  }
+  ```
+
+### Example Combining Both:
+
+```css
+.grid-container {
+  display: grid;
+  justify-items: center; /* All grid items will be horizontally centered by default */
+}
+
+.grid-item {
+  justify-self: start; /* This specific item will override the default and be aligned to the start within its grid cell */
+}
+```
+
+In this example, the `justify-items` property is used to set the default horizontal alignment for all grid items within the container. However, the specific item with the class `.grid-item` overrides this default using `justify-self`, aligning itself to the start within its grid cell.
+
+In summary, `justify-items` sets the default horizontal alignment for all grid items in the container, while `justify-self` allows you to override that default for individual items within the grid.
